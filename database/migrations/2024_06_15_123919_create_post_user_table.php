@@ -11,10 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->json("body")->nullable();
+        Schema::create('post_user', function (Blueprint $table) {
+           
+           $table->id();
+            $table->foreignId('post_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            // Remove the primary key definition
+            // $table->primary(['post_id', 'user_id']);
             $table->timestamps();
         });
     }
@@ -24,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('post_user');
     }
 };
