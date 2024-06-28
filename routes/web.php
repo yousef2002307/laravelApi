@@ -22,3 +22,6 @@ Route::get('/test', function () {
   $in = GeoFacade::add("smagaassss");
 echo $in;
 });
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
