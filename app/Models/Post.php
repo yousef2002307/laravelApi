@@ -16,7 +16,7 @@ class Post extends Model
 
     ];
     protected $guarded = [];
-
+    protected $appends = ["title_upper"];
     public function getTitleUpperAttribute(){
         return ucfirst($this->title);
     }

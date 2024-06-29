@@ -44,6 +44,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    protected $guarded = [];
     public function comments():HasMany{
         return $this->hasMany(Comment::class,"user_id","id");
     }

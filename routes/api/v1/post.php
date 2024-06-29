@@ -19,10 +19,10 @@ Route::middleware(['auth'])->name("post.")->namespace("App\Http\Controllers")->g
 Route::get("/posts/{id}","PostController@show")->name('show')->where('id','[0-9]+')->withoutMiddleware('auth');
 
 
-    Route::patch("/posts/{id}","PostController@update")->name('update');
+    Route::patch("/posts/{id}","PostController@update")->name('update')->withoutMiddleware('auth');
 
 
-        Route::delete("/posts/{id}","PostController@destroy")->name('destroy');
+        Route::delete("/posts/{id}","PostController@destroy")->name('destroy')->withoutMiddleware('auth');
 
 
         Route::post("/posts","PostController@store")->name('store')->withoutMiddleware('auth');

@@ -14,6 +14,7 @@ class Comment extends Model
         "body" => "array"
 
     ];
+    protected $guarded = [];
     public function post():BelongsTo{
         return $this->belongsTo(Post::class,"post_id","id");
     }

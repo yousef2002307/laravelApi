@@ -16,15 +16,15 @@ Auth::routes();
 Route::middleware(['auth'])->name("comment.")->namespace("App\Http\Controllers")->group(function () {
     Route::get("/comments","CommentController@index")->name("index")->withoutMiddleware('auth');
 
-Route::get("/comments/{id}","CommentController@show")->name('show')->where('id','[0-9]+');
+Route::get("/comments/{id}","CommentController@show")->name('show')->where('id','[0-9]+')->withoutMiddleware('auth');
 
 
-    Route::patch("/comments/{id}","CommentController@update")->name('update');
+    Route::patch("/comments/{id}","CommentController@update")->name('update')->withoutMiddleware('auth');
 
 
-        Route::delete("/comments/{id}","CommentController@destroy")->name('destroy');
+        Route::delete("/comments/{id}","CommentController@destroy")->name('destroy')->withoutMiddleware('auth');
 
 
-        Route::post("/comments","CommentController@store")->name('store');
+        Route::post("/comments","CommentController@store")->name('store')->withoutMiddleware('auth');
 
 });

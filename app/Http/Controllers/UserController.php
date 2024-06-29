@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\User;
+use App\Http\Resources\UserResource;
+
+use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     /**
@@ -12,9 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return new JsonResponse([
-            "users"=>User::all()
-        ]);
+        $posts = User::query()->get();
+        return UserResource::collection($posts);
     }
 
     /**
@@ -30,9 +32,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return new JsonResponse([
-            "id"=>"pst"
-        ]);
+        $created = DB::transaction(function () use ($request) {
+            $created = User::query()->create([
+                "name"=>$request->name,
+                "email"=>$request->email,
+                "password" => $request->password
+               ]);
+               $created->posts()->sync($request->post_id);
+               return $created;
+        });
+      
+       return
+       new UserResource($created);
    
     }
 
@@ -42,9 +53,7 @@ class UserController extends Controller
     public function show(   Request $request,User $id)
     {
       
-        return new JsonResponse([
-            "id"=>$id
-        ]);
+        return new UserResource($id);
     }
 
     /**
@@ -58,20 +67,30 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, User $id)
     {
-        return new JsonResponse([
-            "id"=>'patch'
-        ]);
+        $updated = $id->update([
+           "name"=>$request->name ?? $id->name,
+                "email"=>$request->email ?? $id->email,
+                "password" => $request->password ?? $id->password
+         ]);
+  
+         return new UserResource($id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(User $id)
     {
+        $updated = $id->forceDelete();
+        if(!$updated){
+            return new JsonResponse([
+                "message"=>"failed to update post"
+            ],400);
+        }
         return new JsonResponse([
-            "id"=>"del"
+            "data"=>"succes in deleteing post"
         ]);
    
     }
