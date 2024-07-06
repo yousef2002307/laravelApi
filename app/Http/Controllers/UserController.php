@@ -1,13 +1,16 @@
 <?php
-
+///////////////////note i did not implement repository///////////////////////
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Models\User;
 use App\Http\Resources\UserResource;
-
+use App\Events\UserCreated;
+use App\Events\UserDeleted;
+use App\Events\UserUpdated;
 use Illuminate\Support\Facades\DB;
+use App\Repostories\UserRepostories;
 class UserController extends Controller
 {
     /**
@@ -15,6 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        event(new UserCreated(User::factory()->make()));
         $posts = User::query()->get();
         return UserResource::collection($posts);
     }
@@ -30,18 +34,10 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,UserRepostories $rep)
     {
-        $created = DB::transaction(function () use ($request) {
-            $created = User::query()->create([
-                "name"=>$request->name,
-                "email"=>$request->email,
-                "password" => $request->password
-               ]);
-               $created->posts()->sync($request->post_id);
-               return $created;
-        });
-      
+         $created =$rep->create($request->only(['name','email','password','post_id']));
+           
        return
        new UserResource($created);
    
@@ -67,14 +63,26 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $id)
+    public function update(Request $request, User $id,UserRepostories $rep)
     {
-        $updated = $id->update([
-           "name"=>$request->name ?? $id->name,
-                "email"=>$request->email ?? $id->email,
-                "password" => $request->password ?? $id->password
-         ]);
-  
+        $updated = DB::transaction(function () use ($request,$id) {
+            $updated = $id->update([
+                "name"=>$request->name ?? $id->name,
+                     "email"=>$request->email ?? $id->email,
+                     "password" => $request->password ?? $id->password
+              ]);
+              if(!$updated){
+               throw new \Exception("failed to update post");
+             }
+              if($post_id = $request->post_id){
+                $id->posts()->sync($post_id);
+             }
+             event(new UserUpdated($id));
+             return $updated;
+        });
+       
+        
+         
          return new UserResource($id);
     }
 
@@ -89,6 +97,7 @@ class UserController extends Controller
                 "message"=>"failed to update post"
             ],400);
         }
+        event(new UserDeleted($id));
         return new JsonResponse([
             "data"=>"succes in deleteing post"
         ]);

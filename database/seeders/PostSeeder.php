@@ -22,7 +22,7 @@ class PostSeeder extends Seeder
      
       $this->disable();
         $this->truncate('posts');
-        $posts = \App\Models\Post::factory(10)->untitled()->create();
+        $posts = \App\Models\Post::factory(300)->untitled()->create();
         $posts->each(function (Post $post){
         
           $helper = new Helper;

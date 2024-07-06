@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\GeneralJsonException;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -9,11 +10,14 @@ use App\Http\Resources\PostResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
+use App\Repostories\PostRepostories;
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::query()->get();
+        
+        $pagesize = $request->input('pagesize',3);
+        $posts = Post::query()->paginate($pagesize);
         return PostResource::collection($posts);
     }
 
@@ -28,16 +32,9 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,PostRepostories $rep)
     {
-       $created = DB::transaction(function () use ($request) {
-            $created = Post::query()->create([
-                "title"=>$request->title,
-                "body"=>$request->body
-               ]);
-               $created->users()->sync($request->user_id);
-               return $created;
-        });
+       $created =$rep->create($request->only(['title','body','user_id']));
       
        return
        new PostResource($created);
@@ -64,32 +61,19 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $id)
+    public function update(Request $request, Post $id,PostRepostories $rep)
     {
     
-        $updated = $id->update([
-            "title"=>$request->title ?? $id->title,
-            "body" => $request->body ?? $id->body
-        ]);
-        if(!$updated){
-            return new JsonResponse([
-                "message"=>"failed to update post"
-            ],400);
-        }
+        $updated =  $rep->update($request->only(['title','body','user_id']),$id);
         return new PostResource($id);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $id)
+    public function destroy(Post $id,PostRepostories $post)
     {
-        $updated = $id->forceDelete();
-        if(!$updated){
-            return new JsonResponse([
-                "message"=>"failed to update post"
-            ],400);
-        }
+        $updated = $post->delete($id);
         return new JsonResponse([
             "data"=>"succes in deleteing post"
         ]);
