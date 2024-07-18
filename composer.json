@@ -47,7 +47,11 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "playground" : [
+            "echo 'hello world'"
+        ],
+        "test" : "./vendor/bin/phpunit"
     },
     "extra": {
         "branch-alias": {

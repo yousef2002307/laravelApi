@@ -71,12 +71,16 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $id,PostRepostories $post)
+    public function destroy( $id,PostRepostories $post)
     {
+        if(Post::find($id) == null){
+            throw new GeneralJsonException('not found',400);
+        }else{
+            $id = Post::find($id);
         $updated = $post->delete($id);
         return new JsonResponse([
             "data"=>"succes in deleteing post"
         ]);
-   
+    }
     }
 }

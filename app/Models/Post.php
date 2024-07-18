@@ -16,9 +16,12 @@ class Post extends Model
 
     ];
     protected $guarded = [];
-    protected $appends = ["title_upper"];
+    protected $appends = ["title_upper",'body_array'];
     public function getTitleUpperAttribute(){
         return ucfirst($this->title);
+    }
+    public function getBodyArrayAttribute(){
+        return json_decode($this->attributes["body"]);
     }
 
     public function setTitleAttribute($value){
@@ -31,4 +34,5 @@ class Post extends Model
     public function users():BelongsToMany{
         return $this->belongsToMany(User::class,"post_user","post_id","user_id");
     }
+
 }

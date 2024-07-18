@@ -12,7 +12,7 @@ class PostRepostories extends BaseRepostories{
        return DB::transaction(function () use ($attrs) {
             $created = Post::query()->create([
                 "title"=>data_get($attrs,'title','untitled') ,
-                "body"=>data_get($attrs,'body')
+                "body"=>json_encode(data_get($attrs,'body'))
                ]);
                $created->users()->sync(data_get($attrs,'user_id'));
                return $created;
@@ -35,6 +35,9 @@ class PostRepostories extends BaseRepostories{
     }
 
     public function delete( $id){
+        if(!$id){
+            throw new GeneralJsonException('not found',400);
+        }
         $updated = $id->forceDelete();
        throw_if(!$updated,GeneralJsonException::class,'not found',400);
         return $updated;

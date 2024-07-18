@@ -63,7 +63,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $id,UserRepostories $rep)
+    public function update(Request $request, User $id)
     {
         $updated = DB::transaction(function () use ($request,$id) {
             $updated = $id->update([

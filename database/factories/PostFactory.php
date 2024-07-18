@@ -16,9 +16,15 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $name = $this->faker->name();
+        $email = $this->faker->email();
+        $json_data = json_encode([
+            "name" => $name,
+            "email" => $email
+        ]);
         return [
             "title" => $this->faker->sentence(),
-            "body" => "[]"
+            "body" => $json_data
         ];
     }
 
