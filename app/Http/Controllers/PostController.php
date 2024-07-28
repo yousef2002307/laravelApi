@@ -8,9 +8,21 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Resources\PostResource;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostStoreRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
 use App\Repostories\PostRepostories;
+use Illuminate\Support\Facades\Validator;
+use App\Rules\StrLen;
+/**
+ *@group post managment 
+ * 
+ * api to manage post resources
+ * 
+ * @apiResourceCollection App\Http\Resources\PostResource
+ * @apiResourceModel App\Models\Post
+ * @return ResouceCollection
+**/
 class PostController extends Controller
 {
     public function index(Request $request)
@@ -23,6 +35,8 @@ class PostController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * 
+     * 
      */
     public function create()
     {
@@ -31,9 +45,37 @@ class PostController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @bodyParam title string required The title of the post
+     * @bodyParam body string required The body of the post
+     * @bodyParam user_id int required The user id of the post
+      * @apiResourceCollection App\Http\Resources\PostResource
+    * @apiResourceModel App\Models\Post
      */
     public function store(Request $request,PostRepostories $rep)
     {
+        $vali = Validator::make($request->only(['title','body','user_id']),[
+            'title' => ['required','string',
+            new StrLen()
+            
+
+        ],
+            'body' => ['required'],
+],
+    [
+        'title.required' => 'Title is required',
+        'body.required' => 'Body is required',
+        
+    ],
+    [
+        'title' => "jo title"
+    ],
+    );
+    $vali->after(function(\Illuminate\Validation\Validator $vali){
+        dump("khuih kb");
+    });
+    $vali->validate();
+    
+   
        $created =$rep->create($request->only(['title','body','user_id']));
       
        return
@@ -43,6 +85,10 @@ class PostController extends Controller
 
     /**
      * Display the specified resource.
+     * 
+     * @urlParam id_id int required The ID of the post. Example: 122
+      * @apiResourceCollection App\Http\Resources\PostResource
+    * @apiResourceModel App\Models\Post
      */
     public function show(   Request $request,Post $id)
     {
@@ -60,6 +106,10 @@ class PostController extends Controller
 
     /**
      * Update the specified resource in storage.
+     * 
+     * @urlParam id_id int required The ID of the post. Example: 122
+      * @apiResourceCollection App\Http\Resources\PostResource
+    * @apiResourceModel App\Models\Post
      */
     public function update(Request $request, Post $id,PostRepostories $rep)
     {
@@ -70,6 +120,12 @@ class PostController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * 
+     * @urlParam id_id int required The ID of the post. Example: 122
+      * @response 200 {
+      * "data": "succes in deleteing post"
+      }
+    * @apiResourceModel App\Models\Post
      */
     public function destroy( $id,PostRepostories $post)
     {

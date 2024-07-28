@@ -11,11 +11,21 @@ use App\Events\UserDeleted;
 use App\Events\UserUpdated;
 use Illuminate\Support\Facades\DB;
 use App\Repostories\UserRepostories;
+/**
+ *@group user managment 
+ * 
+ * api to manage user resources
+**/
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+/**
+     *show all users22
+     * 
+     
+      * @apiResourceCollection App\Http\Resources\UserResource
+    * @apiResourceModel App\Models\User
      */
+
     public function index()
     {
         event(new UserCreated(User::factory()->make()));

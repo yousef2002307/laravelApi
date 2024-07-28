@@ -1,0 +1,1255 @@
+openapi: 3.0.3
+info:
+  title: livepost
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost'
+paths:
+  /api/v1/login:
+    post:
+      summary: 'Handle a login request to the application.'
+      operationId: handleALoginRequestToTheApplication
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    get:
+      summary: "Show the application's login form."
+      operationId: showTheApplicationsLoginForm
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Server Error'
+                properties:
+                  message:
+                    type: string
+                    example: 'Server Error'
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/register:
+    post:
+      summary: 'Handle a registration request for the application.'
+      operationId: handleARegistrationRequestForTheApplication
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    get:
+      summary: 'Show the application registration form.'
+      operationId: showTheApplicationRegistrationForm
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Server Error'
+                properties:
+                  message:
+                    type: string
+                    example: 'Server Error'
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/logout:
+    post:
+      summary: 'Log the user out of the application.'
+      operationId: logTheUserOutOfTheApplication
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/password/reset:
+    get:
+      summary: 'Display the form to request a password reset link.'
+      operationId: displayTheFormToRequestAPasswordResetLink
+      description: ''
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Server Error'
+                properties:
+                  message:
+                    type: string
+                    example: 'Server Error'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: "Reset the given user's password."
+      operationId: resetTheGivenUsersPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/password/email:
+    post:
+      summary: 'Send a reset link to the given user.'
+      operationId: sendAResetLinkToTheGivenUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/password/reset/{token}':
+    get:
+      summary: 'Display the password reset view for the given token.'
+      operationId: displayThePasswordResetViewForTheGivenToken
+      description: 'If no token is present, display the link request form.'
+      parameters: []
+      responses:
+        500:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Server Error'
+                properties:
+                  message:
+                    type: string
+                    example: 'Server Error'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: token
+        description: ''
+        example: officiis
+        required: true
+        schema:
+          type: string
+  /api/v1/password/confirm:
+    get:
+      summary: 'Display the password confirmation view.'
+      operationId: displayThePasswordConfirmationView
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: "Confirm the given user's password."
+      operationId: confirmTheGivenUsersPassword
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/comments:
+    get:
+      summary: ''
+      operationId: getApiV1Comments
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      body: '[]'
+                      user_id: 1
+                      post_id: 13
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 2
+                      body: '[]'
+                      user_id: 5
+                      post_id: 228
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 3
+                      body: '[]'
+                      user_id: 5
+                      post_id: 277
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 4
+                      body: '[]'
+                      user_id: 4
+                      post_id: 71
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 5
+                      body: '[]'
+                      user_id: 5
+                      post_id: 73
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 6
+                      body: '[]'
+                      user_id: 1
+                      post_id: 245
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 7
+                      body: '[]'
+                      user_id: 9
+                      post_id: 39
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 8
+                      body: '[]'
+                      user_id: 5
+                      post_id: 291
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 9
+                      body: '[]'
+                      user_id: 7
+                      post_id: 68
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                    -
+                      id: 10
+                      body: '[]'
+                      user_id: 7
+                      post_id: 119
+                      created_at: '2024-07-17 22:17:42'
+                      updated_at: '2024-07-17 22:17:42'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        body: '[]'
+                        user_id: 1
+                        post_id: 13
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 2
+                        body: '[]'
+                        user_id: 5
+                        post_id: 228
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 3
+                        body: '[]'
+                        user_id: 5
+                        post_id: 277
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 4
+                        body: '[]'
+                        user_id: 4
+                        post_id: 71
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 5
+                        body: '[]'
+                        user_id: 5
+                        post_id: 73
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 6
+                        body: '[]'
+                        user_id: 1
+                        post_id: 245
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 7
+                        body: '[]'
+                        user_id: 9
+                        post_id: 39
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 8
+                        body: '[]'
+                        user_id: 5
+                        post_id: 291
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 9
+                        body: '[]'
+                        user_id: 7
+                        post_id: 68
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                      -
+                        id: 10
+                        body: '[]'
+                        user_id: 7
+                        post_id: 119
+                        created_at: '2024-07-17 22:17:42'
+                        updated_at: '2024-07-17 22:17:42'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        body:
+                          type: string
+                          example: '[]'
+                        user_id:
+                          type: integer
+                          example: 1
+                        post_id:
+                          type: integer
+                          example: 13
+                        created_at:
+                          type: string
+                          example: '2024-07-17 22:17:42'
+                        updated_at:
+                          type: string
+                          example: '2024-07-17 22:17:42'
+      tags:
+        - Endpoints
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+  '/api/v1/comments/{id_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    body: '[]'
+                    user_id: 1
+                    post_id: 13
+                    created_at: '2024-07-17 22:17:42'
+                    updated_at: '2024-07-17 22:17:42'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      body:
+                        type: string
+                        example: '[]'
+                      user_id:
+                        type: integer
+                        example: 1
+                      post_id:
+                        type: integer
+                        example: 13
+                      created_at:
+                        type: string
+                        example: '2024-07-17 22:17:42'
+                      updated_at:
+                        type: string
+                        example: '2024-07-17 22:17:42'
+      tags:
+        - Endpoints
+      security: []
+    patch:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id_id
+        description: 'The ID of the id.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/test2:
+    get:
+      summary: ''
+      operationId: getApiV1Test2
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 'test 22'
+      tags:
+        - Endpoints
+      security: []
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/v1/posts:
+    get:
+      summary: ''
+      operationId: getApiV1Posts
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 1
+                      title: none
+                      body: '{"name":"Maxime Von","email":"ashlee39@kilback.org"}'
+                      arr:
+                        name: 'Maxime Von'
+                        email: ashlee39@kilback.org
+                      created_at: '2024-07-17T22:17:36.000000Z'
+                      updated_at: '2024-07-17T22:17:36.000000Z'
+                    -
+                      id: 2
+                      title: none
+                      body: '{"name":"Carli Dickens","email":"patsy29@hotmail.com"}'
+                      arr:
+                        name: 'Carli Dickens'
+                        email: patsy29@hotmail.com
+                      created_at: '2024-07-17T22:17:36.000000Z'
+                      updated_at: '2024-07-17T22:17:36.000000Z'
+                    -
+                      id: 3
+                      title: none
+                      body: '{"name":"Monty Monahan DDS","email":"dawn.schmidt@yahoo.com"}'
+                      arr:
+                        name: 'Monty Monahan DDS'
+                        email: dawn.schmidt@yahoo.com
+                      created_at: '2024-07-17T22:17:36.000000Z'
+                      updated_at: '2024-07-17T22:17:36.000000Z'
+                  links:
+                    first: 'http://localhost/api/v1/posts?page=1'
+                    last: 'http://localhost/api/v1/posts?page=142'
+                    prev: null
+                    next: 'http://localhost/api/v1/posts?page=2'
+                  meta:
+                    current_page: 1
+                    from: 1
+                    last_page: 142
+                    links:
+                      -
+                        url: null
+                        label: '&laquo; Previous'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=1'
+                        label: '1'
+                        active: true
+                      -
+                        url: 'http://localhost/api/v1/posts?page=2'
+                        label: '2'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=3'
+                        label: '3'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=4'
+                        label: '4'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=5'
+                        label: '5'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=6'
+                        label: '6'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=7'
+                        label: '7'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=8'
+                        label: '8'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=9'
+                        label: '9'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=10'
+                        label: '10'
+                        active: false
+                      -
+                        url: null
+                        label: ...
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=141'
+                        label: '141'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=142'
+                        label: '142'
+                        active: false
+                      -
+                        url: 'http://localhost/api/v1/posts?page=2'
+                        label: 'Next &raquo;'
+                        active: false
+                    path: 'http://localhost/api/v1/posts'
+                    per_page: 3
+                    to: 3
+                    total: 424
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 1
+                        title: none
+                        body: '{"name":"Maxime Von","email":"ashlee39@kilback.org"}'
+                        arr:
+                          name: 'Maxime Von'
+                          email: ashlee39@kilback.org
+                        created_at: '2024-07-17T22:17:36.000000Z'
+                        updated_at: '2024-07-17T22:17:36.000000Z'
+                      -
+                        id: 2
+                        title: none
+                        body: '{"name":"Carli Dickens","email":"patsy29@hotmail.com"}'
+                        arr:
+                          name: 'Carli Dickens'
+                          email: patsy29@hotmail.com
+                        created_at: '2024-07-17T22:17:36.000000Z'
+                        updated_at: '2024-07-17T22:17:36.000000Z'
+                      -
+                        id: 3
+                        title: none
+                        body: '{"name":"Monty Monahan DDS","email":"dawn.schmidt@yahoo.com"}'
+                        arr:
+                          name: 'Monty Monahan DDS'
+                          email: dawn.schmidt@yahoo.com
+                        created_at: '2024-07-17T22:17:36.000000Z'
+                        updated_at: '2024-07-17T22:17:36.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 1
+                        title:
+                          type: string
+                          example: none
+                        body:
+                          type: string
+                          example: '{"name":"Maxime Von","email":"ashlee39@kilback.org"}'
+                        arr:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: 'Maxime Von'
+                            email:
+                              type: string
+                              example: ashlee39@kilback.org
+                        created_at:
+                          type: string
+                          example: '2024-07-17T22:17:36.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-07-17T22:17:36.000000Z'
+                  links:
+                    type: object
+                    properties:
+                      first:
+                        type: string
+                        example: 'http://localhost/api/v1/posts?page=1'
+                      last:
+                        type: string
+                        example: 'http://localhost/api/v1/posts?page=142'
+                      prev:
+                        type: string
+                        example: null
+                      next:
+                        type: string
+                        example: 'http://localhost/api/v1/posts?page=2'
+                  meta:
+                    type: object
+                    properties:
+                      current_page:
+                        type: integer
+                        example: 1
+                      from:
+                        type: integer
+                        example: 1
+                      last_page:
+                        type: integer
+                        example: 142
+                      links:
+                        type: array
+                        example:
+                          -
+                            url: null
+                            label: '&laquo; Previous'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=1'
+                            label: '1'
+                            active: true
+                          -
+                            url: 'http://localhost/api/v1/posts?page=2'
+                            label: '2'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=3'
+                            label: '3'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=4'
+                            label: '4'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=5'
+                            label: '5'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=6'
+                            label: '6'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=7'
+                            label: '7'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=8'
+                            label: '8'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=9'
+                            label: '9'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=10'
+                            label: '10'
+                            active: false
+                          -
+                            url: null
+                            label: ...
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=141'
+                            label: '141'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=142'
+                            label: '142'
+                            active: false
+                          -
+                            url: 'http://localhost/api/v1/posts?page=2'
+                            label: 'Next &raquo;'
+                            active: false
+                        items:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                              example: null
+                            label:
+                              type: string
+                              example: '&laquo; Previous'
+                            active:
+                              type: boolean
+                              example: false
+                      path:
+                        type: string
+                        example: 'http://localhost/api/v1/posts'
+                      per_page:
+                        type: integer
+                        example: 3
+                      to:
+                        type: integer
+                        example: 3
+                      total:
+                        type: integer
+                        example: 424
+      tags:
+        - 'post managment '
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 458
+                      title: 'consequatur reiciendis placeat quos cupiditate dicta.'
+                      body: '{"name":"Prof. Henriette Olson","email":"francis56@gmail.com"}'
+                      arr:
+                        name: 'Prof. Henriette Olson'
+                        email: francis56@gmail.com
+                      created_at: '2024-07-24T10:59:13.000000Z'
+                      updated_at: '2024-07-24T10:59:13.000000Z'
+                    -
+                      id: 459
+                      title: 'incidunt dolor perferendis omnis molestias fugit molestiae inventore.'
+                      body: '{"name":"Kristy Leannon","email":"elnora.goldner@yahoo.com"}'
+                      arr:
+                        name: 'Kristy Leannon'
+                        email: elnora.goldner@yahoo.com
+                      created_at: '2024-07-24T10:59:13.000000Z'
+                      updated_at: '2024-07-24T10:59:13.000000Z'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 458
+                        title: 'consequatur reiciendis placeat quos cupiditate dicta.'
+                        body: '{"name":"Prof. Henriette Olson","email":"francis56@gmail.com"}'
+                        arr:
+                          name: 'Prof. Henriette Olson'
+                          email: francis56@gmail.com
+                        created_at: '2024-07-24T10:59:13.000000Z'
+                        updated_at: '2024-07-24T10:59:13.000000Z'
+                      -
+                        id: 459
+                        title: 'incidunt dolor perferendis omnis molestias fugit molestiae inventore.'
+                        body: '{"name":"Kristy Leannon","email":"elnora.goldner@yahoo.com"}'
+                        arr:
+                          name: 'Kristy Leannon'
+                          email: elnora.goldner@yahoo.com
+                        created_at: '2024-07-24T10:59:13.000000Z'
+                        updated_at: '2024-07-24T10:59:13.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 458
+                        title:
+                          type: string
+                          example: 'consequatur reiciendis placeat quos cupiditate dicta.'
+                        body:
+                          type: string
+                          example: '{"name":"Prof. Henriette Olson","email":"francis56@gmail.com"}'
+                        arr:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: 'Prof. Henriette Olson'
+                            email:
+                              type: string
+                              example: francis56@gmail.com
+                        created_at:
+                          type: string
+                          example: '2024-07-24T10:59:13.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-07-24T10:59:13.000000Z'
+      tags:
+        - 'post managment '
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                  description: 'The title of the post'
+                  example: iste
+                body:
+                  type: string
+                  description: 'The body of the post'
+                  example: repellendus
+                user_id:
+                  type: integer
+                  description: 'The user id of the post'
+                  example: 14
+              required:
+                - title
+                - body
+                - user_id
+      security: []
+  '/api/v1/posts/{id_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 454
+                      title: 'fugiat cupiditate assumenda vel eaque autem temporibus.'
+                      body: '{"name":"Halle Kautzer","email":"michelle.heathcote@buckridge.com"}'
+                      arr:
+                        name: 'Halle Kautzer'
+                        email: michelle.heathcote@buckridge.com
+                      created_at: '2024-07-24T10:59:13.000000Z'
+                      updated_at: '2024-07-24T10:59:13.000000Z'
+                    -
+                      id: 455
+                      title: 'optio nam et pariatur modi laborum ipsa ullam.'
+                      body: '{"name":"Ms. Lynn Kassulke V","email":"adooley@yahoo.com"}'
+                      arr:
+                        name: 'Ms. Lynn Kassulke V'
+                        email: adooley@yahoo.com
+                      created_at: '2024-07-24T10:59:13.000000Z'
+                      updated_at: '2024-07-24T10:59:13.000000Z'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 454
+                        title: 'fugiat cupiditate assumenda vel eaque autem temporibus.'
+                        body: '{"name":"Halle Kautzer","email":"michelle.heathcote@buckridge.com"}'
+                        arr:
+                          name: 'Halle Kautzer'
+                          email: michelle.heathcote@buckridge.com
+                        created_at: '2024-07-24T10:59:13.000000Z'
+                        updated_at: '2024-07-24T10:59:13.000000Z'
+                      -
+                        id: 455
+                        title: 'optio nam et pariatur modi laborum ipsa ullam.'
+                        body: '{"name":"Ms. Lynn Kassulke V","email":"adooley@yahoo.com"}'
+                        arr:
+                          name: 'Ms. Lynn Kassulke V'
+                          email: adooley@yahoo.com
+                        created_at: '2024-07-24T10:59:13.000000Z'
+                        updated_at: '2024-07-24T10:59:13.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 454
+                        title:
+                          type: string
+                          example: 'fugiat cupiditate assumenda vel eaque autem temporibus.'
+                        body:
+                          type: string
+                          example: '{"name":"Halle Kautzer","email":"michelle.heathcote@buckridge.com"}'
+                        arr:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: 'Halle Kautzer'
+                            email:
+                              type: string
+                              example: michelle.heathcote@buckridge.com
+                        created_at:
+                          type: string
+                          example: '2024-07-24T10:59:13.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-07-24T10:59:13.000000Z'
+      tags:
+        - 'post managment '
+      security: []
+    patch:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 456
+                      title: 'iure in provident amet sequi.'
+                      body: '{"name":"Dr. Shea Schmeler PhD","email":"randy.maggio@robel.net"}'
+                      arr:
+                        name: 'Dr. Shea Schmeler PhD'
+                        email: randy.maggio@robel.net
+                      created_at: '2024-07-24T10:59:13.000000Z'
+                      updated_at: '2024-07-24T10:59:13.000000Z'
+                    -
+                      id: 457
+                      title: 'aut aliquam in omnis aut ipsam necessitatibus nihil.'
+                      body: '{"name":"Tyree Hintz","email":"lucy93@hotmail.com"}'
+                      arr:
+                        name: 'Tyree Hintz'
+                        email: lucy93@hotmail.com
+                      created_at: '2024-07-24T10:59:13.000000Z'
+                      updated_at: '2024-07-24T10:59:13.000000Z'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 456
+                        title: 'iure in provident amet sequi.'
+                        body: '{"name":"Dr. Shea Schmeler PhD","email":"randy.maggio@robel.net"}'
+                        arr:
+                          name: 'Dr. Shea Schmeler PhD'
+                          email: randy.maggio@robel.net
+                        created_at: '2024-07-24T10:59:13.000000Z'
+                        updated_at: '2024-07-24T10:59:13.000000Z'
+                      -
+                        id: 457
+                        title: 'aut aliquam in omnis aut ipsam necessitatibus nihil.'
+                        body: '{"name":"Tyree Hintz","email":"lucy93@hotmail.com"}'
+                        arr:
+                          name: 'Tyree Hintz'
+                          email: lucy93@hotmail.com
+                        created_at: '2024-07-24T10:59:13.000000Z'
+                        updated_at: '2024-07-24T10:59:13.000000Z'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 456
+                        title:
+                          type: string
+                          example: 'iure in provident amet sequi.'
+                        body:
+                          type: string
+                          example: '{"name":"Dr. Shea Schmeler PhD","email":"randy.maggio@robel.net"}'
+                        arr:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              example: 'Dr. Shea Schmeler PhD'
+                            email:
+                              type: string
+                              example: randy.maggio@robel.net
+                        created_at:
+                          type: string
+                          example: '2024-07-24T10:59:13.000000Z'
+                        updated_at:
+                          type: string
+                          example: '2024-07-24T10:59:13.000000Z'
+      tags:
+        - 'post managment '
+      security: []
+    parameters:
+      -
+        in: path
+        name: id_id
+        description: 'The ID of the post.'
+        example: 122
+        required: true
+        schema:
+          type: integer
+  '/api/v1/posts/{id}':
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data: 'succes in deleteing post'
+                properties:
+                  data:
+                    type: string
+                    example: 'succes in deleteing post'
+      tags:
+        - 'post managment '
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the post.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: id_id
+        description: 'The ID of the post.'
+        example: 122
+        required: true
+        schema:
+          type: integer
+  /api/v1/users:
+    get:
+      summary: 'show all users22'
+      operationId: showAllUsers22
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    -
+                      id: 14
+                      name: 'Ms. Cecelia Schroeder'
+                      email: cortez95@example.net
+                      created_at: '2024-07-24 10:59:13'
+                      updated_at: '2024-07-24 10:59:13'
+                    -
+                      id: 15
+                      name: 'Dr. Nickolas Kovacek'
+                      email: aiden.tremblay@example.com
+                      created_at: '2024-07-24 10:59:13'
+                      updated_at: '2024-07-24 10:59:13'
+                properties:
+                  data:
+                    type: array
+                    example:
+                      -
+                        id: 14
+                        name: 'Ms. Cecelia Schroeder'
+                        email: cortez95@example.net
+                        created_at: '2024-07-24 10:59:13'
+                        updated_at: '2024-07-24 10:59:13'
+                      -
+                        id: 15
+                        name: 'Dr. Nickolas Kovacek'
+                        email: aiden.tremblay@example.com
+                        created_at: '2024-07-24 10:59:13'
+                        updated_at: '2024-07-24 10:59:13'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          example: 14
+                        name:
+                          type: string
+                          example: 'Ms. Cecelia Schroeder'
+                        email:
+                          type: string
+                          example: cortez95@example.net
+                        created_at:
+                          type: string
+                          example: '2024-07-24 10:59:13'
+                        updated_at:
+                          type: string
+                          example: '2024-07-24 10:59:13'
+      tags:
+        - 'user managment '
+      security: []
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'user managment '
+      security: []
+  '/api/v1/users/{id_id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    id: 1
+                    name: 'Mazie Beer'
+                    email: rice.okey@example.org
+                    created_at: '2024-07-17 22:17:35'
+                    updated_at: '2024-07-17 22:17:35'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                      name:
+                        type: string
+                        example: 'Mazie Beer'
+                      email:
+                        type: string
+                        example: rice.okey@example.org
+                      created_at:
+                        type: string
+                        example: '2024-07-17 22:17:35'
+                      updated_at:
+                        type: string
+                        example: '2024-07-17 22:17:35'
+      tags:
+        - 'user managment '
+      security: []
+    patch:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'user managment '
+      security: []
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - 'user managment '
+      security: []
+    parameters:
+      -
+        in: path
+        name: id_id
+        description: 'The ID of the id.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+tags:
+  -
+    name: Endpoints
+    description: ''
+  -
+    name: 'post managment '
+    description: "\napi to manage post resources"
+  -
+    name: 'user managment '
+    description: "\napi to manage user resources"

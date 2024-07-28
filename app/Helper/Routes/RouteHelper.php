@@ -6,15 +6,15 @@ use Illuminate\Support\Facades\Route;
 
 class RouteHelper
 {
-   public static function getRoutes(string $filename){
-    $d1 = new \RecursiveDirectoryIterator($filename);
-    $d2 = new \RecursiveIteratorIterator($d1);
-    while($d2->valid()) {
-       if(!$d2->isDot() && $d2->isFile() && $d2->isReadable() && $d2->current()->getExtension() == 'php') {
-          require $d2->key();
-          
+   public static function getRoutes(string $filename): void
+   {
+       $directoryIterator = new \RecursiveDirectoryIterator($filename);
+       $iteratorIterator = new \RecursiveIteratorIterator($directoryIterator);
+
+       foreach ($iteratorIterator as $file) {
+           if ($file->isFile() && $file->isReadable() && $file->getExtension() === 'php') {
+               require $file->getPathname();
+           }
        }
-       $d2->next();
-    }
    }
 }
