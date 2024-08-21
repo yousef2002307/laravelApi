@@ -25,4 +25,9 @@ export default defineConfig({
             vue: 'vue/dist/vue.esm-bundler.js',
         },
     },
+});   mix.options({
+    hmrOptions: {
+        host: 'localhost',
+        port: 8080
+    }
 });

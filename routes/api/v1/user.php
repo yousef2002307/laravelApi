@@ -14,17 +14,17 @@ Auth::routes();
 
 
 Route::middleware(['auth'])->name("user.")->namespace("App\Http\Controllers")->group(function () {
-    Route::get("/users","UserController@index")->name("index")->withoutMiddleware('auth');
+    Route::get("/users","UserController@index")->name("index");
 
-Route::get("/users/{id}","UserController@show")->name('show')->where('id','[0-9]+')->withoutMiddleware('auth');
-
-
-    Route::patch("/users/{id}","UserController@update")->name('update')->withoutMiddleware('auth');
+Route::get("/users/{id}","UserController@show")->name('show')->where('id','[0-9]+');
 
 
-        Route::delete("/users/{id}","UserController@destroy")->name('destroy')->withoutMiddleware('auth');
+    Route::patch("/users/{id}","UserController@update")->name('update');
 
 
-        Route::post("/users","UserController@store")->name('store')->withoutMiddleware('auth');
+        Route::delete("/users/{id}","UserController@destroy")->name('destroy');
+
+
+        Route::post("/users","UserController@store")->name('store');
 
 });

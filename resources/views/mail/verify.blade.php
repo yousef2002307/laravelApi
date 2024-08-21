@@ -1,6 +1,6 @@
 @component('mail::message')
-#{{__('test.key')}}
+# hi!!!!!!!!!!!!!!
 thankes <br/>
-livepost
-{{$name}}
+click [here]({{$url}})
+
 @endcomponent

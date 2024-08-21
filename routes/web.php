@@ -7,6 +7,9 @@ use App\Services\Geo\GeoFacade;
 use App\Models\User;
 use App\Models\Post;
 use App\Http\Controllers\Auth\VerificationController;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Notification;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +54,7 @@ return $data['body_array']->name;
 
 
 Route::get( '/reset-password/{token}',function($token){
-  return $token;
+  return view('auth.reset-password', ['token' => $token]);
 })
 ->middleware(['guest:'.config('fortify.guard')])
 ->name('password.reset');
@@ -60,3 +63,39 @@ Route::get( '/reset-password/{token}',function($token){
 // routes/web.php or routes/api.php
 
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+Route::get("/test1",function(){
+return view("test");
+});
+
+
+Route::get("/lang",function(){
+App::setLocale('en');
+$trans =  __("welcome");
+return trans_choice("test.key",2);
+});
+
+
+Route::get("/videos/{id}",function(Illuminate\Http\Request $request,$id){
+  if(!$request->hasValidSignature()){
+    abort(401);
+  }
+ return "video 1 $id";
+})->name("vid"); 
+
+Route::get('/test3',function(){
+   event(new \App\Events\playgroundEvent());
+    return null;
+});
+
+Route::get('/test4',function(){
+  $currentDateTime = Carbon::now();
+
+  // You can format the date and time as needed
+  $formattedDateTime = $currentDateTime->format('Y-m-d H:i:s');
+  
+  echo $formattedDateTime;
+});
+
+Route::get("/ws",function(){
+  return view("websocket");
+});

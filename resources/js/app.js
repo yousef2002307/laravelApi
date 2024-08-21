@@ -37,3 +37,7 @@ app.component('example-component', ExampleComponent);
  */
 
 app.mount('#app');
+const channel = Echo.channel('public.playground.1');
+channel.subscribed = () => {
+    console.log('subscribed');
+}

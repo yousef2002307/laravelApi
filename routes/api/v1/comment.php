@@ -14,17 +14,17 @@ Auth::routes();
 
 
 Route::middleware(['auth'])->name("comment.")->namespace("App\Http\Controllers")->group(function () {
-    Route::get("/comments","CommentController@index")->name("index")->withoutMiddleware('auth');
+    Route::get("/comments","CommentController@index")->name("index");
 
-Route::get("/comments/{id}","CommentController@show")->name('show')->where('id','[0-9]+')->withoutMiddleware('auth');
-
-
-    Route::patch("/comments/{id}","CommentController@update")->name('update')->withoutMiddleware('auth');
+Route::get("/comments/{id}","CommentController@show")->name('show')->where('id','[0-9]+');
 
 
-        Route::delete("/comments/{id}","CommentController@destroy")->name('destroy')->withoutMiddleware('auth');
+    Route::patch("/comments/{id}","CommentController@update")->name('update');
 
 
-        Route::post("/comments","CommentController@store")->name('store')->withoutMiddleware('auth');
+        Route::delete("/comments/{id}","CommentController@destroy")->name('destroy');
+
+
+        Route::post("/comments","CommentController@store")->name('store');
 
 });

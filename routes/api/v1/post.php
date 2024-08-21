@@ -14,17 +14,17 @@ Auth::routes();
 
 
 Route::middleware(['auth'])->name("post.")->namespace("App\Http\Controllers")->group(function () {
-    Route::get("/posts","PostController@index")->name("index")->withoutMiddleware('auth');
+    Route::get("/posts","PostController@index")->name("index");
 
-Route::get("/posts/{id}","PostController@show")->name('show')->where('id','[0-9]+')->withoutMiddleware('auth');
-
-
-    Route::patch("/posts/{id}","PostController@update")->name('update')->withoutMiddleware('auth');
+Route::get("/posts/{id}","PostController@show")->name('show')->where('id','[0-9]+');
 
 
-        Route::delete("/posts/{id}","PostController@destroy")->name('destroy')->withoutMiddleware('auth');
+    Route::patch("/posts/{id}","PostController@update")->name('update');
 
 
-        Route::post("/posts","PostController@store")->name('store')->withoutMiddleware('auth');
+        Route::delete("/posts/{id}","PostController@destroy")->name('destroy');
+
+
+        Route::post("/posts","PostController@store")->name('store');
 
 });

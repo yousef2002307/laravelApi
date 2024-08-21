@@ -18,7 +18,7 @@ use App\Helper\Routes\RouteHelper;
 |
 */
 
-Route::prefix('v1')->group(function () {
+Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
     RouteHelper::getRoutes(__DIR__.'/api/v1/');
  });
 

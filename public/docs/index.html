@@ -180,7 +180,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: July 24, 2024</li>
+        <li>Last updated: August 20, 2024</li>
     </ul>
 </div>
 
@@ -455,7 +455,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-login">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -463,13 +463,11 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -689,7 +687,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-register">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -697,13 +695,11 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -815,7 +811,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-password-reset">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -823,13 +819,11 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -1025,14 +1019,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/password/reset/officiis" \
+    --get "http://localhost/api/v1/password/reset/mollitia" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/password/reset/officiis"
+    "http://localhost/api/v1/password/reset/mollitia"
 );
 
 const headers = {
@@ -1049,7 +1043,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-password-reset--token-">
             <blockquote>
-            <p>Example response (500):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1057,13 +1051,11 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Server Error&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -1143,10 +1135,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="token"                data-endpoint="GETapi-v1-password-reset--token-"
-               value="officiis"
+               value="mollitia"
                data-component="url">
     <br>
-<p>Example: <code>officiis</code></p>
+<p>Example: <code>mollitia</code></p>
             </div>
                     </form>
 
@@ -1527,7 +1519,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-comments">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1535,94 +1527,11 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 1,
-            &quot;post_id&quot;: 13,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 5,
-            &quot;post_id&quot;: 228,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 5,
-            &quot;post_id&quot;: 277,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 4,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 4,
-            &quot;post_id&quot;: 71,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 5,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 5,
-            &quot;post_id&quot;: 73,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 6,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 1,
-            &quot;post_id&quot;: 245,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 7,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 9,
-            &quot;post_id&quot;: 39,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 8,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 5,
-            &quot;post_id&quot;: 291,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 9,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 7,
-            &quot;post_id&quot;: 68,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        },
-        {
-            &quot;id&quot;: 10,
-            &quot;body&quot;: &quot;[]&quot;,
-            &quot;user_id&quot;: 7,
-            &quot;post_id&quot;: 119,
-            &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-        }
-    ]
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -1734,7 +1643,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-comments--id_id-">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1742,20 +1651,11 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;body&quot;: &quot;[]&quot;,
-        &quot;user_id&quot;: 1,
-        &quot;post_id&quot;: 13,
-        &quot;created_at&quot;: &quot;2024-07-17 22:17:42&quot;,
-        &quot;updated_at&quot;: &quot;2024-07-17 22:17:42&quot;
-    }
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -2227,20 +2127,20 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-test2">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
                 <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
             </summary>
-            <pre><code class="language-http">content-type: text/html; charset=UTF-8
-cache-control: no-cache, private
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 51
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
-<code class="language-json" style="max-height: 300px;">test 22</code>
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
  </pre>
     </span>
 <span id="execution-results-GETapi-v1-test2" hidden>
@@ -2479,7 +2379,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-posts">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -2487,139 +2387,11 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;title&quot;: &quot;none&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Maxime Von\&quot;,\&quot;email\&quot;:\&quot;ashlee39@kilback.org\&quot;}&quot;,
-            &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Maxime Von&quot;,
-                &quot;email&quot;: &quot;ashlee39@kilback.org&quot;
-            },
-            &quot;created_at&quot;: &quot;2024-07-17T22:17:36.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17T22:17:36.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;title&quot;: &quot;none&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Carli Dickens\&quot;,\&quot;email\&quot;:\&quot;patsy29@hotmail.com\&quot;}&quot;,
-            &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Carli Dickens&quot;,
-                &quot;email&quot;: &quot;patsy29@hotmail.com&quot;
-            },
-            &quot;created_at&quot;: &quot;2024-07-17T22:17:36.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17T22:17:36.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;title&quot;: &quot;none&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Monty Monahan DDS\&quot;,\&quot;email\&quot;:\&quot;dawn.schmidt@yahoo.com\&quot;}&quot;,
-            &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Monty Monahan DDS&quot;,
-                &quot;email&quot;: &quot;dawn.schmidt@yahoo.com&quot;
-            },
-            &quot;created_at&quot;: &quot;2024-07-17T22:17:36.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-17T22:17:36.000000Z&quot;
-        }
-    ],
-    &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://localhost/api/v1/posts?page=1&quot;,
-        &quot;last&quot;: &quot;http://localhost/api/v1/posts?page=142&quot;,
-        &quot;prev&quot;: null,
-        &quot;next&quot;: &quot;http://localhost/api/v1/posts?page=2&quot;
-    },
-    &quot;meta&quot;: {
-        &quot;current_page&quot;: 1,
-        &quot;from&quot;: 1,
-        &quot;last_page&quot;: 142,
-        &quot;links&quot;: [
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=1&quot;,
-                &quot;label&quot;: &quot;1&quot;,
-                &quot;active&quot;: true
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=2&quot;,
-                &quot;label&quot;: &quot;2&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=3&quot;,
-                &quot;label&quot;: &quot;3&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=4&quot;,
-                &quot;label&quot;: &quot;4&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=5&quot;,
-                &quot;label&quot;: &quot;5&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=6&quot;,
-                &quot;label&quot;: &quot;6&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=7&quot;,
-                &quot;label&quot;: &quot;7&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=8&quot;,
-                &quot;label&quot;: &quot;8&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=9&quot;,
-                &quot;label&quot;: &quot;9&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=10&quot;,
-                &quot;label&quot;: &quot;10&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;...&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=141&quot;,
-                &quot;label&quot;: &quot;141&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=142&quot;,
-                &quot;label&quot;: &quot;142&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/posts?page=2&quot;,
-                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
-                &quot;active&quot;: false
-            }
-        ],
-        &quot;path&quot;: &quot;http://localhost/api/v1/posts&quot;,
-        &quot;per_page&quot;: 3,
-        &quot;to&quot;: 3,
-        &quot;total&quot;: 424
-    }
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -2738,26 +2510,26 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 454,
-            &quot;title&quot;: &quot;fugiat cupiditate assumenda vel eaque autem temporibus.&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Halle Kautzer\&quot;,\&quot;email\&quot;:\&quot;michelle.heathcote@buckridge.com\&quot;}&quot;,
+            &quot;id&quot;: 490,
+            &quot;title&quot;: &quot;est voluptatem est qui ut quas qui praesentium nulla.&quot;,
+            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Mr. Lucious Mayer\&quot;,\&quot;email\&quot;:\&quot;ddach@schaefer.com\&quot;}&quot;,
             &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Halle Kautzer&quot;,
-                &quot;email&quot;: &quot;michelle.heathcote@buckridge.com&quot;
+                &quot;name&quot;: &quot;Mr. Lucious Mayer&quot;,
+                &quot;email&quot;: &quot;ddach@schaefer.com&quot;
             },
-            &quot;created_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;
         },
         {
-            &quot;id&quot;: 455,
-            &quot;title&quot;: &quot;optio nam et pariatur modi laborum ipsa ullam.&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Ms. Lynn Kassulke V\&quot;,\&quot;email\&quot;:\&quot;adooley@yahoo.com\&quot;}&quot;,
+            &quot;id&quot;: 491,
+            &quot;title&quot;: &quot;qui aperiam enim sequi illo.&quot;,
+            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Ellen Nienow I\&quot;,\&quot;email\&quot;:\&quot;graciela20@gmail.com\&quot;}&quot;,
             &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Ms. Lynn Kassulke V&quot;,
-                &quot;email&quot;: &quot;adooley@yahoo.com&quot;
+                &quot;name&quot;: &quot;Ellen Nienow I&quot;,
+                &quot;email&quot;: &quot;graciela20@gmail.com&quot;
             },
-            &quot;created_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;
         }
     ]
 }</code>
@@ -2890,26 +2662,26 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 456,
-            &quot;title&quot;: &quot;iure in provident amet sequi.&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Dr. Shea Schmeler PhD\&quot;,\&quot;email\&quot;:\&quot;randy.maggio@robel.net\&quot;}&quot;,
+            &quot;id&quot;: 492,
+            &quot;title&quot;: &quot;vitae neque repellat in ea ut ut et.&quot;,
+            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Dewayne Gibson\&quot;,\&quot;email\&quot;:\&quot;frederik69@daniel.org\&quot;}&quot;,
             &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Dr. Shea Schmeler PhD&quot;,
-                &quot;email&quot;: &quot;randy.maggio@robel.net&quot;
+                &quot;name&quot;: &quot;Dewayne Gibson&quot;,
+                &quot;email&quot;: &quot;frederik69@daniel.org&quot;
             },
-            &quot;created_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;
         },
         {
-            &quot;id&quot;: 457,
-            &quot;title&quot;: &quot;aut aliquam in omnis aut ipsam necessitatibus nihil.&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Tyree Hintz\&quot;,\&quot;email\&quot;:\&quot;lucy93@hotmail.com\&quot;}&quot;,
+            &quot;id&quot;: 493,
+            &quot;title&quot;: &quot;debitis officiis earum molestiae saepe repellendus reprehenderit.&quot;,
+            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Dr. Brooks Hagenes\&quot;,\&quot;email\&quot;:\&quot;edwin.kirlin@walter.com\&quot;}&quot;,
             &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Tyree Hintz&quot;,
-                &quot;email&quot;: &quot;lucy93@hotmail.com&quot;
+                &quot;name&quot;: &quot;Dr. Brooks Hagenes&quot;,
+                &quot;email&quot;: &quot;edwin.kirlin@walter.com&quot;
             },
-            &quot;created_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;
         }
     ]
 }</code>
@@ -3155,9 +2927,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"title\": \"iste\",
-    \"body\": \"repellendus\",
-    \"user_id\": 14
+    \"title\": \"aut\",
+    \"body\": \"totam\",
+    \"user_id\": 5
 }"
 </code></pre></div>
 
@@ -3173,9 +2945,9 @@ const headers = {
 };
 
 let body = {
-    "title": "iste",
-    "body": "repellendus",
-    "user_id": 14
+    "title": "aut",
+    "body": "totam",
+    "user_id": 5
 };
 
 fetch(url, {
@@ -3195,26 +2967,26 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 458,
-            &quot;title&quot;: &quot;consequatur reiciendis placeat quos cupiditate dicta.&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Prof. Henriette Olson\&quot;,\&quot;email\&quot;:\&quot;francis56@gmail.com\&quot;}&quot;,
+            &quot;id&quot;: 494,
+            &quot;title&quot;: &quot;neque odio harum ducimus fuga quibusdam odio similique.&quot;,
+            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Cielo Feil\&quot;,\&quot;email\&quot;:\&quot;antonina94@hotmail.com\&quot;}&quot;,
             &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Prof. Henriette Olson&quot;,
-                &quot;email&quot;: &quot;francis56@gmail.com&quot;
+                &quot;name&quot;: &quot;Cielo Feil&quot;,
+                &quot;email&quot;: &quot;antonina94@hotmail.com&quot;
             },
-            &quot;created_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;
         },
         {
-            &quot;id&quot;: 459,
-            &quot;title&quot;: &quot;incidunt dolor perferendis omnis molestias fugit molestiae inventore.&quot;,
-            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Kristy Leannon\&quot;,\&quot;email\&quot;:\&quot;elnora.goldner@yahoo.com\&quot;}&quot;,
+            &quot;id&quot;: 495,
+            &quot;title&quot;: &quot;iste architecto fugit consequatur omnis quia.&quot;,
+            &quot;body&quot;: &quot;{\&quot;name\&quot;:\&quot;Prof. Lenora Considine\&quot;,\&quot;email\&quot;:\&quot;kiana.rutherford@hansen.net\&quot;}&quot;,
             &quot;arr&quot;: {
-                &quot;name&quot;: &quot;Kristy Leannon&quot;,
-                &quot;email&quot;: &quot;elnora.goldner@yahoo.com&quot;
+                &quot;name&quot;: &quot;Prof. Lenora Considine&quot;,
+                &quot;email&quot;: &quot;kiana.rutherford@hansen.net&quot;
             },
-            &quot;created_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-24T10:59:13.000000Z&quot;
+            &quot;created_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-20T15:26:54.000000Z&quot;
         }
     ]
 }</code>
@@ -3296,10 +3068,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="POSTapi-v1-posts"
-               value="iste"
+               value="aut"
                data-component="body">
     <br>
-<p>The title of the post Example: <code>iste</code></p>
+<p>The title of the post Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -3307,10 +3079,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="body"                data-endpoint="POSTapi-v1-posts"
-               value="repellendus"
+               value="totam"
                data-component="body">
     <br>
-<p>The body of the post Example: <code>repellendus</code></p>
+<p>The body of the post Example: <code>totam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
@@ -3318,10 +3090,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="user_id"                data-endpoint="POSTapi-v1-posts"
-               value="14"
+               value="5"
                data-component="body">
     <br>
-<p>The user id of the post Example: <code>14</code></p>
+<p>The user id of the post Example: <code>5</code></p>
         </div>
         </form>
 
@@ -3373,18 +3145,18 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 14,
-            &quot;name&quot;: &quot;Ms. Cecelia Schroeder&quot;,
-            &quot;email&quot;: &quot;cortez95@example.net&quot;,
-            &quot;created_at&quot;: &quot;2024-07-24 10:59:13&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-24 10:59:13&quot;
+            &quot;id&quot;: 41,
+            &quot;name&quot;: &quot;Alene Mayer III&quot;,
+            &quot;email&quot;: &quot;kiera.white@example.com&quot;,
+            &quot;created_at&quot;: &quot;2024-08-20 15:26:54&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-20 15:26:54&quot;
         },
         {
-            &quot;id&quot;: 15,
-            &quot;name&quot;: &quot;Dr. Nickolas Kovacek&quot;,
-            &quot;email&quot;: &quot;aiden.tremblay@example.com&quot;,
-            &quot;created_at&quot;: &quot;2024-07-24 10:59:13&quot;,
-            &quot;updated_at&quot;: &quot;2024-07-24 10:59:13&quot;
+            &quot;id&quot;: 42,
+            &quot;name&quot;: &quot;Halle Bode&quot;,
+            &quot;email&quot;: &quot;marquardt.lori@example.net&quot;,
+            &quot;created_at&quot;: &quot;2024-08-20 15:26:54&quot;,
+            &quot;updated_at&quot;: &quot;2024-08-20 15:26:54&quot;
         }
     ]
 }</code>
@@ -3498,7 +3270,7 @@ fetch(url, {
 
 <span id="example-responses-GETapi-v1-users--id_id-">
             <blockquote>
-            <p>Example response (200):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -3506,19 +3278,11 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 52
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;name&quot;: &quot;Mazie Beer&quot;,
-        &quot;email&quot;: &quot;rice.okey@example.org&quot;,
-        &quot;created_at&quot;: &quot;2024-07-17 22:17:35&quot;,
-        &quot;updated_at&quot;: &quot;2024-07-17 22:17:35&quot;
-    }
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>

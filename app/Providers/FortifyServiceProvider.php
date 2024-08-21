@@ -12,7 +12,12 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
-
+use App\Providers\EnsureLoginIsNotThrottled;
+use Laravel\Fortify\Features;
+use App\Providers\RedirectIfTwoFactorAuthenticatable;
+use App\Actions\Fortify\AttemptToAuthenticate;
+use App\Providers\PrepareAuthenticatedSession;
+use App\Models\User;
 class FortifyServiceProvider extends ServiceProvider
 {
     /**
@@ -42,5 +47,28 @@ class FortifyServiceProvider extends ServiceProvider
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
         });
+
+        // Fortify::authenticateUsing(function (Request $request) {
+        //    $user = User::find(1);
+        //    return $user;
+        // });
+        Fortify::authenticateUsing(function (Request $request) {
+            return array_filter([
+                config('fortify.limiters.login') ? null : EnsureLoginIsNotThrottled::class,
+                Features::enabled(Features::twoFactorAuthentication()) ? RedirectIfTwoFactorAuthenticatable::class : null,
+//                DummyDummy::class,
+//                DummyDummy::class,
+                AttemptToAuthenticate::class,
+                PrepareAuthenticatedSession::class,
+            ]); 
+        });
     }
+
+    //        Fortify::confirmPasswordsUsing(function ($user, $password){
+//            // for the confirm password endpoint
+//            // return true if password is correct
+//            // return false if password input is wrong
+//        });
+
+
 }

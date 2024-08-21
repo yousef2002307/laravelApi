@@ -12,9 +12,11 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Models\Comment;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Post;
+use Laravel\Fortify\TwoFactorAuthenticatable;
+
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable,TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.

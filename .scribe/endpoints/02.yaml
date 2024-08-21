@@ -31,7 +31,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":14,"name":"Ms. Cecelia Schroeder","email":"cortez95@example.net","created_at":"2024-07-24 10:59:13","updated_at":"2024-07-24 10:59:13"},{"id":15,"name":"Dr. Nickolas Kovacek","email":"aiden.tremblay@example.com","created_at":"2024-07-24 10:59:13","updated_at":"2024-07-24 10:59:13"}]}'
+        content: '{"data":[{"id":41,"name":"Alene Mayer III","email":"kiera.white@example.com","created_at":"2024-08-20 15:26:54","updated_at":"2024-08-20 15:26:54"},{"id":42,"name":"Halle Bode","email":"marquardt.lori@example.net","created_at":"2024-08-20 15:26:54","updated_at":"2024-08-20 15:26:54"}]}'
         headers: []
         description: ''
         custom: []
@@ -78,13 +78,11 @@ endpoints:
     fileParameters: []
     responses:
       -
-        status: 200
-        content: '{"data":{"id":1,"name":"Mazie Beer","email":"rice.okey@example.org","created_at":"2024-07-17 22:17:35","updated_at":"2024-07-17 22:17:35"}}'
+        status: 401
+        content: '{"message":"Unauthenticated."}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '52'
           access-control-allow-origin: '*'
         description: null
         custom: []
